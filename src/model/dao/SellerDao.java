@@ -1,5 +1,6 @@
 package model.dao;
 
+import db.DbException;
 import model.entitites.Seller;
 
 import java.util.List;

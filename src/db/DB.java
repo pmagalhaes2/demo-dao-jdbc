@@ -24,7 +24,7 @@ public class DB {
     }
 
     private static Properties loadProperties() {
-        try (FileInputStream fs = new FileInputStream("src/jdbc/ex_00_1/db.properties")) {
+        try (FileInputStream fs = new FileInputStream("db.properties")) {
             Properties props = new Properties();
             props.load(fs);
             return props;
