@@ -8,9 +8,11 @@ import model.entitites.Seller;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 public class Program {
     public static void main(String[] args) throws ParseException {
+        Scanner sc = new Scanner(System.in);
 
         SellerDao sellerDao = DaoFactory.createSellerDao();
 
@@ -31,15 +33,24 @@ public class Program {
             System.out.println(s);
         }
 
-        System.out.println("\n==== TEST 4: Seller Insert ====");
-        Seller newSeller = new Seller(null, "Greg", "greg@gmail.com", new Date(), 4000.0, department);
-        sellerDao.insert(newSeller);
-        System.out.println(STR."Inserted! New id = \{newSeller.getId()}");
+//        System.out.println("\n==== TEST 4: Seller Insert ====");
+//        Seller newSeller = new Seller(null, "Greg", "greg@gmail.com", new Date(), 4000.0, department);
+//        sellerDao.insert(newSeller);
+//        System.out.println(STR."Inserted! New id = \{newSeller.getId()}");
 
         System.out.println("\n==== TEST 5: Seller Update ====");
         seller = sellerDao.findById(1);
         seller.setName("Bob Billie");
         sellerDao.update(seller);
         System.out.println("Update completed");
+
+
+        System.out.println("\n==== TEST 6: Seller Delete ====");
+        System.out.print("Enter id for delete test: ");
+        int id = sc.nextInt();
+        sellerDao.deleteById(id);
+        System.out.println("Delete completed");
+
+        sc.close();
     }
 }
